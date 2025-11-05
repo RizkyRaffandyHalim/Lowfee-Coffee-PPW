@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Message Board</title>
+  </head>
+  <body>
+    <h1>Simple Message Board</h1>
+    <form action="/messages" method="POST">
+      {{ csrfField() }}
+      <input type="text" name="message" placeholder="Type a message..." required>
+      <button type="submit">Send</button>
+    </form>
+
+    <ul>
+      @each(message in messages)
+        <li>{{message.content}}</li>
+      @endeach
+    </ul>
+  </body>
+</html>
