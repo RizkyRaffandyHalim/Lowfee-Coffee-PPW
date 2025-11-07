@@ -1,0 +1,66 @@
+@layout.app ({title:'home'})
+  @slot('meta')
+    @vite(['resources/css/footerheader.css'])
+    @vite(['resources/css/products.css'])
+    @vite(['resources/css/toast.css'])
+  @endslot
+
+  @slot('main')
+        <section class="products-banner">
+            <h1>Our Products</h1>
+        </section>
+
+        <section class="products">
+        <div class="section-container">
+            <h2>Most Picked</h2>
+            <div class="main-categories">
+                <div class="category">
+                    <img src="images/coffeecup.jpg" alt="Coffee">
+                    <p>Coffee</p>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <section class="newest">
+        <div class="section-container">
+            <h2>Newest Release</h2>
+            <div class="grid grid-newest">
+                @each(product in newest)
+                    <a href="#" class="card" style="background-image:url('{{product.imageUrl}}');">
+                        <div class="card-text">
+                            <h3>{{product.name}}</h3>
+                            <p>Rp.{{product.price}}</p>
+                        </div>
+                        <form method="POST" action="/wishlist">
+                            {{ csrfField() }}
+                            <input type="hidden" name="productId" value="{{product.id}}">
+                            <button type="submit" class="add-to-wishlist">❤️</button>
+                        </form>
+                        <button 
+                        class="add-to-cart"
+                        data-name="{{product.name}}"
+                        data-price="{{product.price}}"
+                        data-image="{{product.imageUrl}}">
+                        🛒
+                        </button>
+                    </a>
+                @endeach
+            </div>
+        </div>
+        </section>
+
+        <section class="all-categories">
+        <div class="section-container">
+            <h2>All Categories</h2>
+            <div class="category-grid">
+                @each(product in allProducts)
+                    <a href="#" class="category-card" style="background-image:url('{{product.imageUrl}}');">
+                        <p>{{product.name}}</p>
+                    </a>
+                @end
+            </div>
+        </div>
+        </section>
+    @endslot
+@end

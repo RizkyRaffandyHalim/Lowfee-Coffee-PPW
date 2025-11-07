@@ -1,0 +1,23 @@
+@layout.app ({title:'home'})
+  @slot('meta')
+    @vite(['resources/css/footerheader.css'])
+    @vite(['resources/css/cart.css'])
+  @endslot
+
+  @slot('main')
+    <section class="cart-banner">
+      <h1>Your Cart</h1>
+    </section>
+
+    <main class="cart-container">
+      <div id="cartItems" class="cart-grid"></div>
+      <div class="cart-summary">
+        <p>Total: <span id="cartTotal">$0</span></p>
+        <button id="checkoutBtn">Checkout</button>
+      </div>
+    </main>
+
+    {{-- <script src="cart.js"></script> --}}
+    @vite('resources/js/cart.js')
+  @endslot
+@end

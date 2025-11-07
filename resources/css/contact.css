@@ -1,0 +1,128 @@
+.contact-hero {
+    position: relative;
+    background: url('/images/AboutUsBanner.jpg') center/cover no-repeat;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.contact-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.contact-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    z-index: 1;
+}
+
+.contact-hero p {
+    font-size: 1.2rem;
+    z-index: 1;
+}
+
+.contact-form-section {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.contact-form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input-group input,
+.input-group textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.input-group textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    padding: 12px;
+    border: none;
+    background: #ff9800;
+    color: white;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background: darkorange;
+}
+
+.contact-info {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.contact-info h2 {
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: auto;
+}
+
+footer {
+    background: #333;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+footer a {
+    color: #ff9800;
+    text-decoration: none;
+    margin: 0 5px;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+textarea {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  padding: 8px;
+}

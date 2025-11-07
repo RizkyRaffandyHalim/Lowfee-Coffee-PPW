@@ -1,0 +1,24 @@
+@layout.app ({title:'home'})
+@slot('meta')
+@vite(['resources/css/footerheader.css'])
+@vite(['resources/css/about.css'])
+@endslot
+@slot('main')
+<section class="about-hero">
+    <h1>About Us</h1>
+    <p>
+        Freshly brewed coffee, crafted for everyone.
+    </p>
+</section>
+
+<section class="about-content">
+    <h2>Our Story</h2>
+    <p>
+        LowFee Coffee was founded with a simple goal, to provide high-quality, freshly brewed coffee at an affordable
+        price. We are committed to sourcing the finest beans and delivering a consistently excellent experience to every
+        customer.
+    </p>
+</section>
+@vite(['resources/js/search.js'])
+@endslot
+@end

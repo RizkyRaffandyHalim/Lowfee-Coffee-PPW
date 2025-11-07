@@ -1,0 +1,47 @@
+@layout.app ({title:'home'})
+@slot('meta')
+@vite(['resources/css/footerheader.css'])
+@vite(['resources/css/contact.css'])
+@endslot
+
+@slot('main')
+  <section class="contact-hero">
+    <h1>Get in Touch</h1>
+    <p>We'd love to hear from you! Drop us a line below.</p>
+  </section>
+
+  <section class="contact-form-section">
+    <form id="contactForm">
+      <div class="input-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your name" required>
+      </div>
+
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Your email" required>
+      </div>
+
+      <div class="input-group">
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="Write your message..." required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+  </section>
+
+  <section class="contact-info">
+    <h2>Contact Info</h2>
+    <p>Email: contact@lowfeecoffee.com</p>
+    <p>Address: 123 Imaginary Street, South Jakarta</p>
+    <div class="social-icons">
+      <a href="#"><img src="images/Facebook_Logo_Primary.png" alt="Facebook"></a>
+      <a href="#"><img src="images/Instagram_Glyph_Gradient.png" alt="Instagram"></a>
+      <a href="#"><img src="images/logo-black.png" alt="Twitter"></a>
+    </div>
+  </section>
+  {{-- <script src="contact.js"></script> --}}
+  @vite('resources/js/contact.js')
+@endslot
+@end

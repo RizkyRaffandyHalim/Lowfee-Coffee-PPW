@@ -1,20 +1,43 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Message Board</title>
-  </head>
-  <body>
-    <h1>Simple Message Board</h1>
-    <form action="/messages" method="POST">
-      {{ csrfField() }}
-      <input type="text" name="message" placeholder="Type a message..." required>
-      <button type="submit">Send</button>
-    </form>
+@layout.app ({title:'home'})
+    @slot('meta')
+        @vite(['resources/css/footerheader.css'])
+        @vite(['resources/css/home.css'])
+        @vite(['resources/css/toast.css'])
+    @endslot
 
-    <ul>
-      @each(message in messages)
-        <li>{{message.content}}</li>
-      @endeach
-    </ul>
-  </body>
-</html>
+    @slot('main')
+        <section class="hero">
+            <h1>Welcome to Your Daily Brew</h1>
+            <p>Fresh Brewed Coffee for Under $2? What a Deal!</p>
+            <a href="/products" class="btn-h">Products</a>
+        </section>
+
+        <section class="about">
+            <h2>ABOUT US</h2>
+            <p>From your early morning pick-me-up to a late night study session, our goal is to serve drinks and bites that are both affordable and delicious.</p>
+        </section>
+
+        <section class="featured">
+            <h2>FEATURED PRODUCTS</h2>
+            <div class="product-grid">
+                @each(product in featured)
+                    <div class="product-card" style="background-image: url('{{product.imageUrl}}');">
+                        <h3>{{product.name}}</h3>
+                        <p>{{product.price}}</p>
+                        <a href="#" class="btn-f">Buy Now</a>
+                    </div>
+                @endeach
+            </div>
+        </section>
+
+        <section class="contact">
+            <h2>SHARE</h2>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com"><img src="images/Facebook_Logo_Primary.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com"><img src="images/Instagram_Glyph_Gradient.png" alt="Instagram"></a>
+                    <a href="https://x.com"><img src="images/logo-black.png" alt="Twitter"></a>
+                    <a href="mailto:"><img src="images/mail.png" alt="Email"></a>
+                </div>
+        </section>
+    @endslot
+@end

@@ -1,0 +1,23 @@
+@layout.app ({title:'home'})
+@slot('meta')
+@vite(['resources/css/style.css'])
+@vite(['resources/css/wishlist.css'])
+@endslot
+@slot('main')
+<section class="wishlist-banner">
+  <h1>Your Wishlist</h1>
+</section>
+
+<main class="wishlist-container">
+  <div id="wishlistItems" class="wishlist-grid">
+    @each(wishlist in wishlists)
+      <div class="wishlist-item">
+        <img src="{{wishlist.product.imageUrl}}">
+        <p>{{wishlist.product.name}}</p>
+        <p>{{wishlist.product.price}}</p>
+      </div>
+    @endeach
+  </div>
+</main>
+@endslot
+@end

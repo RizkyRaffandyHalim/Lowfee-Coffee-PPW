@@ -1,0 +1,505 @@
+body{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    position: fixed;
+    top: clamp(10px, 5vh, 50px);
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px clamp(10px, 4vw, 40px);
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.logo{
+    width: clamp(40px, 7vw, 75px);
+    height: auto;
+    border-radius: 5px;
+}
+
+.nav-box{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50px;
+    padding: clamp(5px, 2vh, 15px) clamp(10px, 3vw, 20px);
+}
+
+.nav-box ul{
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-box li{
+    margin: 0 clamp(5px, 2vw, 20px);
+}
+
+.nav-box a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-box a:hover {
+    color: darkorange;
+}
+
+.hero{
+    height: 90vh;
+    background: 
+    linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), 
+    url("images/HomePageHeroBanner.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 5vw;
+}
+
+.hero h1{
+    font-size: clamp(2rem, 6vw, 5rem);
+    margin: 0 0 1rem 0;
+}
+
+.hero p{
+    font-size: clamp(1rem, 2.5vw, 1.8rem);
+    margin: 0 0 1.5rem 0;
+}
+
+.hero .btn-h{
+    margin-top: clamp(10px, 2vh, 20px);
+    padding: clamp(8px, 1.5vh, 15px) clamp(16px, 3vw, 30px);
+    background: #ff9800;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
+    transition: background 0.3s ease;
+}
+
+.hero .btn-h:hover{
+    background: #e68900;
+}
+
+.about {
+    padding: 80px 20px;
+    background: #f9f9f9;
+    text-align: center;
+    color: #333;
+}
+
+.about h2{
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: clamp(10px, 2vh, 20px);
+}
+
+.about p{
+    max-width: 60ch;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.featured{
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.featured h2{
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: clamp(10px, 2vh, 20px);
+}
+
+.product-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 150px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.product-card{
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    padding: 20px;
+    height: 300px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.product-card::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    border-radius: 15px;
+    z-index: 0;
+}
+
+.product-card .btn-f {
+  display: inline-block;
+  width: fit-content;
+  margin:10px auto 0;
+  padding: clamp(6px, 1vh, 10px) clamp(12px, 2vw, 20px);
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  background: #ff9800;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  transition: background 0.3s ease, transform 0.2s ease;
+  position: relative;
+  z-index: 1;
+  margin-top: 10px;
+}
+
+.product-card .btn-f:hover {
+  background: #e68900;
+  transform: scale(1.05);
+}
+
+.product-card h3 {
+  position: relative;
+  z-index: 1;
+  margin: 10px 0;
+}
+
+.product-card p {
+  position: relative;
+  z-index: 1;
+  margin: 5px 0 15px;
+}
+
+.product-card .btn-f {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+}
+
+.product-card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+.contact{
+    padding: 60px 20px;
+    text-align: center;
+    background:#f9f9f9;
+}
+
+.contact h2{
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: 20px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+
+footer{
+    background: #333;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.footer-logo{
+    width: 50px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+footer p{
+    margin: 5px 0;
+    font-size: clamp(0.8rem, 1.2vw, 1rem);
+}
+
+.footer-links a{
+    color: #ff9800;
+    text-decoration: none;
+    margin: 0 5px;
+    font-weight: bold;
+}
+
+.footer-links a:hover{
+    text-decoration: underline;
+}
+
+/* self note : index.html ends here. from now on it's about.html.*/
+
+.about-hero {
+  background: url('images/AboutUsBanner.jpg') center/cover no-repeat;
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.about-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.about-hero h1,
+.about-hero p {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+
+.about-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 20px;
+}
+
+.about-hero p {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  line-height: 1.6;
+}
+
+.about-content {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: left;
+}
+
+.about-content h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* self note : about.html ends here. it's products.html moving forward.*/
+
+.products-banner {
+  background-color: #8B4513;
+  height: 200px;
+  padding-top: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.products-banner h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-container h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.products {
+  padding: 120px 20px 40px;
+  margin: 0 auto;
+}
+
+.main-categories {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.category img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.category img:hover {
+  transform: scale(1.05);
+}
+
+.category p {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.grid {
+  display: grid;
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.grid-newest {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+.card h3 {
+  position: relative;
+  margin: 20px;
+  z-index: 1;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.newest {
+  padding: 60px 40px;
+}
+
+.newest h2 {
+  margin-bottom: 30px;
+}
+
+.newest .card {
+  height: 750px;
+}
+
+.all-categories{
+  padding: 120px 20px 40px;
+  margin: 0 auto;
+}
+
+.all-categories h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.category-card {
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  text-decoration: none;
+}
+
+.category-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 0;
+}
+
+.category-card p {
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.category-card:hover {
+  transform: scale(1.05);
+}

@@ -1,0 +1,32 @@
+@layout.app ({title:'home'})
+@slot('meta')
+@vite(['resources/css/footerheader.css'])
+@vite(['resources/css/login.css'])
+@endslot
+@slot('main')
+<div class="login-body">
+  <div class="login-container">
+    <h1>Welcome Back ☕</h1>
+    <p>Sign in to continue</p>
+    <p>Hardcoded buyer : name=user, pass=user123</p>
+    <p>Hardcoded seller : name=seller, pass=seller123</p>
+
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username" required>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+  </div>
+  @vite('resources/js/login.js')
+  {{-- <script src="login.js"></script> --}}
+</div>
+@endslot
+@end

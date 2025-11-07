@@ -1,0 +1,63 @@
+.login-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('images/HomePageHeroBanner.jpg') center/cover no-repeat;
+  font-family: 'Raleway', sans-serif;
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  width: clamp(300px, 30vw, 400px);
+  text-align: center;
+}
+
+.login-container h1 {
+  margin-bottom: 10px;
+  color: #4b2e05;
+}
+
+.login-container p {
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.input-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #4b2e05;
+  font-weight: 600;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.login-btn {
+  background: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 25px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #e68900;
+}
