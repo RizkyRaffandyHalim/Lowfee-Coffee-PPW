@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, belongsTo} from '@adonisjs/lucid/orm'
+import { BaseModel, column, belongsTo } from '@adonisjs/lucid/orm'
 import type { BelongsTo } from '@adonisjs/lucid/types/relations'
 import Product from './product.js'
 
@@ -8,10 +8,10 @@ export default class Wishlist extends BaseModel {
   declare id: number
 
   @column()
-  declare userId:number
+  declare userId: number
 
   @column()
-  declare productId:number
+  declare productId: number
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
@@ -19,6 +19,6 @@ export default class Wishlist extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 
-  @belongsTo(()=>Product)
+  @belongsTo(() => Product)
   declare product: BelongsTo<typeof Product>
 }

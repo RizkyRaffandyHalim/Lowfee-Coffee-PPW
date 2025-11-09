@@ -1,5 +1,6 @@
+/* === WISHLIST BANNER === */
 .wishlist-banner {
-  background-color: #8B4513;
+  background-color: #8b4513;
   height: 200px;
   padding-top: 120px;
   display: flex;
@@ -15,72 +16,178 @@
   margin: 0;
 }
 
+/* === CONTAINER === */
 .wishlist-container {
   padding: 100px 40px;
   max-width: 1400px;
   margin: 0 auto;
 }
 
+/* === EMPTY STATE === */
+.wishlist-empty {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.wishlist-empty img {
+  width: 220px;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.wishlist-empty p {
+  font-size: 1.2rem;
+  color: #444;
+}
+
+.browse-btn {
+  background-color: #8b4513;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.browse-btn:hover {
+  background-color: #a5672f;
+}
+
+/* === GRID === */
 .wishlist-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
 
+/* === CARD === */
 .wishlist-card {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 15px;
-  height: 250px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  position: relative;
+  background: #fff;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease;
-}
-
-.wishlist-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(2px);
-  z-index: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .wishlist-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
-.wishlist-card p {
-  position: relative;
-  z-index: 1;
-  margin-bottom: 15px;
+.wishlist-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.wishlist-details {
+  padding: 20px;
+}
+
+.product-name {
   font-size: 1.2rem;
+  font-weight: 700;
+  color: #3a2e25;
+  margin-bottom: 8px;
+}
+
+.product-desc {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.product-price {
+  color: #8b4513;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+/* === BUTTONS === */
+.wishlist-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.add-cart-btn,
+.remove-btn {
+  flex: 1;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.add-cart-btn {
+  background-color: #8b4513;
+  color: #fff;
+}
+
+.add-cart-btn:hover {
+  background-color: #a55e26;
+  transform: scale(1.05);
 }
 
 .remove-btn {
-  position: relative;
-  z-index: 2;
   background-color: #ff6b6b;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  transition: background-color 0.3s ease;
+  color: #fff;
 }
 
 .remove-btn:hover {
   background-color: #ff8787;
+  transform: scale(1.05);
+}
+
+/* === TOAST === */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(40px);
+  background: #333;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 9999;
+  font-size: 0.95rem;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .wishlist-banner h1 {
+    font-size: 2rem;
+  }
+
+  .wishlist-container {
+    padding: 60px 20px;
+  }
+
+  .wishlist-actions {
+    flex-direction: column;
+  }
+
+  .add-cart-btn,
+  .remove-btn {
+    width: 100%;
+  }
 }

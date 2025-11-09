@@ -1,23 +1,58 @@
-@layout.app ({title:'home'})
-@slot('meta')
-@vite(['resources/css/style.css'])
-@vite(['resources/css/wishlist.css'])
-@endslot
-@slot('main')
-<section class="wishlist-banner">
-  <h1>Your Wishlist</h1>
-</section>
+@layout.app({ title: 'Wishlist' })
 
-<main class="wishlist-container">
-  <div id="wishlistItems" class="wishlist-grid">
-    @each(wishlist in wishlists)
-      <div class="wishlist-item">
-        <img src="{{wishlist.product.imageUrl}}">
-        <p>{{wishlist.product.name}}</p>
-        <p>{{wishlist.product.price}}</p>
-      </div>
-    @endeach
-  </div>
-</main>
-@endslot
+  @slot('meta')
+    @vite(['resources/css/style.css'])
+    @vite(['resources/css/wishlist.css'])
+    @vite(['resources/js/wishlist.js'])
+  @endslot
+  
+  @slot('main')
+    <!-- Banner -->
+    <section class="wishlist-banner">
+      <h1>
+        Your Wishlist
+      </h1>
+    </section>
+
+    <main class="wishlist-container">
+      @if(wishlists.length === 0)
+        <div class="wishlist-empty">
+          <img src="/images/empty-wishlist.svg" alt="Empty Wishlist" />
+          <p>
+            Belum ada produk di wishlist kamu ☕
+          </p>
+          <a href="/products" class="browse-btn">Lihat Produk</a>
+        </div>
+      @else
+        <div id="wishlistItems" class="wishlist-grid">
+          @each(wishlist in wishlists)
+            <div class="wishlist-card" data-id="{{ wishlist.id }}">
+              <div class="wishlist-image">
+                <img src="{{ wishlist.product.imageUrl }}" alt="{{ wishlist.product.name }}" />
+              </div>
+              <div class="wishlist-details">
+                <h3 class="product-name">
+                  {{ wishlist.product.name }}
+                </h3>
+                <p class="product-desc">
+                  {{ wishlist.product.description || 'Tidak ada deskripsi.' }}
+                </p>
+                <p class="product-price">
+                  Rp {{ wishlist.product.price }}
+                </p>
+                <div class="wishlist-actions">
+                  <button class="add-cart-btn" data-id="{{ wishlist.product.id }}">
+                    <i class="fa fa-shopping-cart"></i>Add to Cart
+                </button>
+                  <button class="remove-btn" data-id="{{ wishlist.id }}">
+                    <i class="fa fa-trash"></i>Remove
+                </button>
+                </div>
+              </div>
+            </div>
+          @endeach
+        </div>
+      @endif
+    </main>
+  @endslot
 @end
