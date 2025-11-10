@@ -1,8 +1,9 @@
-/* === WISHLIST BANNER === */
+/* WISHLIST BANNER */
 .wishlist-banner {
   background-color: #8b4513;
-  height: 200px;
-  padding-top: 120px;
+  padding: 120px 20px 40px;
+  height: auto;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,14 +17,14 @@
   margin: 0;
 }
 
-/* === CONTAINER === */
+/* CONTAINER */
 .wishlist-container {
-  padding: 100px 40px;
+  padding: 80px 40px;
   max-width: 1400px;
   margin: 0 auto;
 }
 
-/* === EMPTY STATE === */
+/* EMPTY STATE */
 .wishlist-empty {
   text-align: center;
   padding: 60px 20px;
@@ -55,14 +56,17 @@
   background-color: #a5672f;
 }
 
-/* === GRID === */
+/* GRID */
 .wishlist-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
+  justify-content: center;
+  justify-items: center;
+  align-items: start;
 }
 
-/* === CARD === */
+/* CARD */
 .wishlist-card {
   background: #fff;
   border-radius: 14px;
@@ -73,6 +77,8 @@
     box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 320px;
 }
 
 .wishlist-card:hover {
@@ -110,7 +116,7 @@
   margin-bottom: 15px;
 }
 
-/* === BUTTONS === */
+/* BUTTONS */
 .wishlist-actions {
   display: flex;
   justify-content: space-between;
@@ -151,28 +157,60 @@
   transform: scale(1.05);
 }
 
-/* === TOAST === */
-.toast {
+/* NOTIFIKASI TOAST */
+
+/* TOAST CONTAINER */
+#toast-container {
   position: fixed;
-  bottom: 20px;
+  bottom: 30px;
   left: 50%;
-  transform: translateX(-50%) translateY(40px);
-  background: #333;
-  color: #fff;
-  padding: 12px 22px;
-  border-radius: 8px;
-  opacity: 0;
-  transition: all 0.3s ease;
+  transform: translateX(-50%);
   z-index: 9999;
-  font-size: 0.95rem;
+}
+
+.toast {
+  background-color: #333;
+  color: white;
+
+  padding: 10px 30px;
+  border-radius: 10px;
+  font-size: 15px;
+
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+  gap: 10px;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+
+  min-width: 280px;
 }
 
 .toast.show {
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
+  transform: translateY(0);
 }
 
-/* === RESPONSIVE === */
+.toast.success {
+  background-color: #2ecc71;
+}
+
+.toast.error {
+  background-color: #e74c3c;
+}
+
+.toast i {
+  font-size: 18px;
+}
+
+.toast span {
+  text-align: left;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .wishlist-banner h1 {
     font-size: 2rem;
@@ -189,5 +227,9 @@
   .add-cart-btn,
   .remove-btn {
     width: 100%;
+  }
+
+  .wishlist-grid {
+    justify-content: center;
   }
 }
